@@ -1,0 +1,25 @@
+const express = require('express');
+const router = express.Router();
+const baseController = require('../controllers/controller');
+const userController = require('../controllers/user.controller');
+const authMiddleware = require('../middlewares/auth.middleware');
+const upload = require('./cloudinary.config');
+
+
+router.get('/', baseController.base);
+
+//USERS
+router.post('/register', upload.single('image'), userController.register)
+router.post('/login', userController.login)
+router.post('/logout', userController.logout)
+
+
+//EVENTS
+
+
+
+
+
+
+module.exports = router;
+
