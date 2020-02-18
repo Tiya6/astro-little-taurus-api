@@ -5,7 +5,7 @@ const VISIBILITY = ['Visible with telescope','Not visible','Visible']
 const eventSchema = new mongoose.Schema (
     {
         name: {type: String, required: true},
-        date: {type: String, required: true},
+        date: {type: Date, required: true},
         description: {type: String,  required: ''},
         category: {type: String, default:''},
         visibility: {type: String, enum: VISIBILITY},
