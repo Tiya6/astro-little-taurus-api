@@ -5,17 +5,16 @@ const SALT_WORK_FACTOR = 10;
 
 const userSchema = new mongoose.Schema (
     {
-        name: {type: String, required: true},
+        name: {type: String},
         email: {
             type: String,
-            required: true,
             unique:true,
             match: [EMAIL_PATTERN, 'Email is invalid']
         },
-        age: {type: Number, required: true},  //  >= 18
-        gender: {type: Boolean, required: true}, // true - mujer 
+        age: {type: Number},  //  >= 18
+        gender: {type: Boolean}, // true - mujer 
         image: {type: String, default: '/img/undefined.png' }, //(url cloudinary)
-        password: {type: String, required: true}, //bcrypt
+        password: {type: String}, //bcrypt
         description: {type: String, default: ''}
     },{
         timestamps: true,
