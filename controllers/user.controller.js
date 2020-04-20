@@ -52,12 +52,18 @@ module.exports.register = (req, res, next) => {
         .catch(next)
 }
 
-module.exports.getFeed = (req, res, next) => {
-    res.json()
-}
 
 module.exports.getProfile = (req, res, next) => {
-    res.json()
+    User.findById(req.params.id)
+    .then(user => {
+    if (user) {
+      res.json(user)
+    } else {
+      req.session.genericError = 'user not found'
+      res.redirect('/')
+    }
+  })
+  .catch(next)
 }
 
 module.exports.updateProfile = (req, res, next) => {
