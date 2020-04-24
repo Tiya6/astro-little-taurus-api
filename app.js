@@ -14,7 +14,7 @@ const session = require('./config/session.config');
 
 const cors = require("cors");
 
-const whitelist = ["http://localhost:3000"];
+const whitelist = ["http://localhost:3000","https://astro-little-taurus.herokuapp.com/","https://astro-little-taurus-web.herokuapp.com/","https://www.mlab.com/databases/heroku_64dmrqgs/"];
 const corsOptions = {
   origin: function(origin, callback) {
     callback(null,true)
