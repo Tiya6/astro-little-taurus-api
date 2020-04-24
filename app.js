@@ -10,11 +10,16 @@ const mongoose = require('mongoose')
 require('./config/db.config');
 
 const session = require('./config/session.config');
-//const cors = require('./config/cors.config')
+const cors = require('./config/cors.config')
 
-const cors = require("cors");
+/*const cors = require("cors");
 
-const whitelist = ["http://localhost:3000","https://astro-little-taurus.herokuapp.com/","https://astro-little-taurus-web.herokuapp.com/","https://www.mlab.com/databases/heroku_64dmrqgs/"];
+const whitelist = [
+  "http://localhost:3000",
+"https://astro-little-taurus.herokuapp.com/",
+"https://astro-little-taurus-web.herokuapp.com/",
+"https://www.mlab.com/databases/heroku_64dmrqgs/"];
+
 const corsOptions = {
   origin: function(origin, callback) {
     callback(null,true)
@@ -25,13 +30,13 @@ const corsOptions = {
     }
   },
   credentials: true
-};
+};*/
 
 /**
  * Configure express
  */
 const app = express();
-app.use(cors(corsOptions))
+app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
