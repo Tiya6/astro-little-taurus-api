@@ -12,11 +12,24 @@ require('./config/db.config');
 const session = require('./config/session.config');
 const cors = require('./config/cors.config')
 
+const whitelist = ["http://localhost:3000"];
+const corsOptions = {
+  origin: function(origin, callback) {
+    callback(null,true)
+    /*if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }*/
+  },
+  credentials: true
+};
+
 /**
  * Configure express
  */
 const app = express();
-app.use(cors)
+app.use(cors(corsOptions))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

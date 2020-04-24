@@ -52,7 +52,6 @@ module.exports.register = (req, res, next) => {
         .catch(next)
 }
 
-
 module.exports.getProfile = (req, res, next) => {
     User.findById(req.params.id)
     .then(user => {
