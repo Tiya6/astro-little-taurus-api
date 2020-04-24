@@ -10,7 +10,9 @@ const mongoose = require('mongoose')
 require('./config/db.config');
 
 const session = require('./config/session.config');
-const cors = require('./config/cors.config')
+//const cors = require('./config/cors.config')
+
+const cors = require("cors");
 
 const whitelist = ["http://localhost:3000"];
 const corsOptions = {
